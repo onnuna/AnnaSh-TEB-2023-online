@@ -114,11 +114,11 @@ print("Total number of apples:", total_apples)
     #W Pythonie łączymy tekst i wartość za pomocą operatora + w przypadku liczb, a nie przecinka.
 
 
-i = i + 2 * j ⇒ i += 2 * j
-var = var / 2 ⇒ var /= 2
-rem = rem % 10 ⇒ rem %= 10
-j = j - (i + var + rem) ⇒ j -= (i + var + rem)
-x = x ** 2 ⇒ x **= 2
+#i = i + 2 * j ⇒ i += 2 * j
+#var = var / 2 ⇒ var /= 2
+#rem = rem % 10 ⇒ rem %= 10
+#j = j - (i + var + rem) ⇒ j -= (i + var + rem)
+#x = x ** 2 ⇒ x **= 2
 
 
 kilometers = 12.25
@@ -193,4 +193,13 @@ x = float(input("Enter value for x: "))
 y= (1/(x+1/(x+1/(x+1/x))))
 print("y =", y)
 
+hour = int(input("Starting time (hours): "))
+mins = int(input("Starting time (minutes): "))
+dura = int(input("Event duration (minutes): "))
+        # Oblicz godziny i minuty zakończenia
+end_hour = (hour + (dura + mins) // 60) % 24
+end_mins = (mins + dura) % 60
+print(f"The event will end at {end_hour:02d}:{end_mins:02d}")
+        # Ten kod wczytuje godzinę rozpoczęcia, minuty rozpoczęcia i czas trwania zdarzenia w minutach. Następnie oblicza godzinę i minutę zakończenia, uwzględniając przepełnienie (czyli jeśli minuty przekraczają 59 lub godziny przekraczają 23, to zostaną odpowiednio zresetowane). 
+        # Na koniec wyświetla czas zakończenia w formacie "HH:MM", używając f-stringa do formatowania wyniku.
 
