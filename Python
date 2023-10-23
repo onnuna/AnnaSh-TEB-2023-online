@@ -1,1 +1,196 @@
+print ("Hello, Python!")
+
+print("The itsy bitsy spider\nclimbed up the waterspout.") # \n - akapit
+print()
+print("Down came the rain\nand washed the spider out.")
+
+print("The itsy bitsy spider\nclimbed up the waterspout.")
+print()
+print("Down came the rain\nand washed the spider out.")
+
+print("My name is", "Python.", end=" ") # end=" " - pozwala 2 sting zmieścić w jedną
+print("Monty Python.")
+
+print("My", "name", "is", "Monty", "Python.", sep="-") # sep=" " - rozdziela słowa tym co wpiszesz w separatror
+
+print("My", "name", "is", sep="_", end="*")
+print("Monty", "Python.", sep="*", end="*\n")
+
+print("Programming","Essentials","in" , sep="***", end="...")
+print("Python")
+
+
+print("    *")*2
+print("   * *")*2
+print("  *   *")*2
+print(" *     *")*2
+print("***   ***")*2
+print("  *   *")*2
+print("  *   *")*2
+print("  *****")*2
+
+print("    *\n   * *\n  *   *\n *     *\n***   ***\n  *   *\n  *   *\n  *****\n")
+
+print("2") #string
+print(2) #liczba całkowita
+
+print('"I\'m"\n""learning""\n"""Python"""\n') # '\ - apostrof
+
+# +, -, *, /, //, %, ** - operatory (jeżeli chociaż jeden wyraz ma float, to wynik równania będzie z float)
+# ** - podnoszenie do potęgi
+# // - dzielenie bez reszty, czyli całkowite
+# % - reszta z dzielenia
+print(2 ** 3) # 8
+print(2 ** 3.) #8.0
+print(2. ** 3) #8.0
+print(2. ** 3.) #8.0
+
+print(14 % 4) # 2
+#14 // 4 gives 3 → this is the integer quotient;
+#3 * 4 gives 12 → as a result of quotient and divisor multiplication;
+#14 - 12 gives 2 → this is the remainder.
+
+print(9 % 6 % 2)
+# modulo liczy się z lewa na prawo
+#from left to right: first 9 % 6 gives 3, and then 3 % 2 gives 1;
+#from right to left: first 6 % 2 gives 0, and then 9 % 0 causes a fatal error.
+
+print(2 ** 2 ** 3)
+# podnoszenie do potęgi liczy się z prawa na lewo
+#2 ** 3 → 8; 2 ** 8 → 256
+
+
+# priotetowość operatorów
+
+#  Priority	  Operator	
+#    1	        **	
+#    2	        +, - (note: unary operators located next to the right of the power operator bind more strongly)	unary
+#    3	      *, /, //, %	
+#    4	        +, -	binary
+
+
+print((5 * ((25 % 13) + 100) / (2 * 13)) // 2)
+
+# Obliczmy wyrażenie w nawiasach:
+# Najpierw obliczmy resztę z dzielenia 25 przez 13: 25 % 13 daje wynik 12.
+# Następnie dodajmy 100: 12 + 100 daje wynik 112.
+# Teraz obliczmy resztę wyrażenia: (5 * 112 / (2 * 13)). Kolejność operacji matematycznych jest mnożenie, dzielenie, i reszta z dzielenia, więc:
+# Pomnóżmy 5 przez 112: 5 * 112 daje wynik 560.
+# Pomnóżmy 2 przez 13: 2 * 13 daje wynik 26.
+# Teraz podzielmy 560 przez 26: 560 / 26 daje wynik 21.53846153846154.
+# Na koniec, użyjemy operatora // do podziału wyniku na część całkowitą, co daje wynik 21.
+# Ostateczny wynik wyrażenia to 21.
+
+var = 1
+account_balance = 1000.0
+client_name = 'John Doe'
+print(var, account_balance, client_name)
+print(var)
+
+var = "3.8.5"
+print("Python version: " + var)
+
+var = 100
+var = 200 + 300
+print(var)
+# wynik będzie 500 gdyż zamieniliśmy początkowe var na nowy
+
+
+a = 3.0
+b = 4.0
+c = (a ** 2 + b ** 2) ** 0.5
+print("c =", c)
+
+    # Zdefiniowanie zmiennych i przypisanie wartości
+john = 3
+mary = 5
+adam = 6
+    # Obliczenie sumy
+total_apples = john + mary + adam
+    # Wyświetlenie wyniku
+print("Total number of apples:", total_apples)
+    #Zmienne powinny być zdefiniowane osobno, a nie jako jedna zmienna var.
+    #Przypisanie wartości do zmiennych powinno wyglądać tak: zmienna = wartość, a nie zmienna = wartość,.
+    #W Pythonie łączymy tekst i wartość za pomocą operatora + w przypadku liczb, a nie przecinka.
+
+
+i = i + 2 * j ⇒ i += 2 * j
+var = var / 2 ⇒ var /= 2
+rem = rem % 10 ⇒ rem %= 10
+j = j - (i + var + rem) ⇒ j -= (i + var + rem)
+x = x ** 2 ⇒ x **= 2
+
+
+kilometers = 12.25
+miles = 7.38
+      # Przeliczenie mil na kilometry
+miles_to_kilometers = miles * 1.60934
+      # Przeliczenie kilometrów na mile
+kilometers_to_miles = kilometers / 1.60934
+print(miles, "miles is", round(miles_to_kilometers, 2), "kilometers")
+print(kilometers, "kilometers is", round(kilometers_to_miles, 2), "miles")
+
+      # Wczytaj wartość zmiennoprzecinkową i przypisz ją do zmiennej x
+x = float(input("Podaj liczbę zmiennoprzecinkową: "))  # Wczytaj liczbę zmiennoprzecinkową od użytkownika
+      # Wykonaj obliczenia w celu oceny wyrażenia
+y = x ** 2 + 3 * x + 2  # Zastąp to odpowiednim wyrażeniem
+print("y =", y)
+      # W tym kodzie najpierw wczytujemy od użytkownika wartość zmiennoprzecinkową za pomocą input(), konwertujemy ją na liczbę zmiennoprzecinkową za pomocą float(), 
+       a następnie obliczamy wartość zmiennej y na podstawie podanego wyrażenia (w tym przypadku y = x^2 + 3x + 2). #
+
+print("Tell me anything...")
+anything = input()
+print("Hmm...", anything, "... Really?")
+
+anything = input("Enter a number: ")
+something = anything ** 2.0
+print(anything, "to the power of 2 is", something)
+
+anything = float(input("Enter a number: "))
+something = anything ** 2.0
+print(anything, "to the power of 2 is", something)
+# funkcja int() pobiera jeden argument (np. ciąg znaków: int(string)) i próbuje przekonwertować go na liczbę całkowitą; 
+# jeśli to się nie powiedzie, cały program również zawiedzie (istnieje obejście tej sytuacji, ale pokażemy to nieco później);
+# Funkcja float() pobiera jeden argument (np. ciąg znaków: float(string)) i próbuje przekonwertować go na float (reszta jest taka sama).
+
+leg_a = float(input("Input first leg length: "))
+leg_b = float(input("Input second leg length: "))
+hypo = (leg_a**2 + leg_b**2) ** .5
+print("Hypotenuse length is", hypo) 
+# działa tylko z doatnimi liczbami
+
+fnam = input("May I have your first name, please? ")
+lnam = input("May I have your last name, please? ")
+print("Thank you.")
+print("\nYour name is " + fnam + " " + lnam + ".")
+
+# string kopijują się 5 * "2" (or "2" * 5) gives "22222" (not 10!)
+#poniższy kod narysuje prostokąt
+print("+" + 10 * "-" + "+")
+print(("|" + " " * 10 + "|\n") * 5, end="")
+print("+" + 10 * "-" + "+")
+# liczba mniejsza lub równa 0 utworzy pustą string - np. end=""
+
+      # Wczytaj dwie wartości zmiennoprzecinkowe dla zmiennych a i b
+a = float(input("Podaj pierwszą liczbę zmiennoprzecinkową (a): "))
+b = float(input("Podaj drugą liczbę zmiennoprzecinkową (b): "))
+      # Wykonaj operacje matematyczne
+addition_result = a + b  # Dodawanie
+subtraction_result = a - b  # Odejmowanie
+multiplication_result = a * b  # Mnożenie
+        # Upewnij się, że b nie jest równe zero, aby uniknąć dzielenia przez zero
+if b != 0:
+    division_result = a / b  # Dzielenie
+else:
+    division_result = "Nie można dzielić przez zero."
+print("Wynik dodawania:", addition_result)
+print("Wynik odejmowania:", subtraction_result)
+print("Wynik mnożenia:", multiplication_result)
+print("Wynik dzielenia:", division_result)
+print("\nThat's all, folks!")
+
+x = float(input("Enter value for x: "))
+y= (1/(x+1/(x+1/(x+1/x))))
+print("y =", y)
+
 
