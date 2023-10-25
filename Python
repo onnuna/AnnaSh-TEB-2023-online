@@ -203,3 +203,138 @@ print(f"The event will end at {end_hour:02d}:{end_mins:02d}")
         # Ten kod wczytuje godzinę rozpoczęcia, minuty rozpoczęcia i czas trwania zdarzenia w minutach. Następnie oblicza godzinę i minutę zakończenia, uwzględniając przepełnienie (czyli jeśli minuty przekraczają 59 lub godziny przekraczają 23, to zostaną odpowiednio zresetowane). 
         # Na koniec wyświetla czas zakończenia w formacie "HH:MM", używając f-stringa do formatowania wyniku.
 
+# = jest operatorem przypisania rowności, np. a = b przypisuje a z wartością b;
+# == operator porównania wartości; a == b porównuje a i b. (True, False)
+
+#        Priority	Operator	
+#            1	        +, -	unary
+#            2	        **	
+#            3	    *, /, //, %	
+#            4	        +, -	binary
+#            5	    <, <=, >, >=	mniejsze niż, mniejsze równe niż, większe niż, większe równe niż
+#            6	        ==, !=	    porównanie, 
+
+n = int(input("Enter an integer: "))
+result = n >= 100
+print(result)
+
+if true_or_false_condition:
+    perform_if_condition_true
+else:
+    perform_if_condition_false
+
+if the_weather_is_good:
+    go_for_a_walk()
+else:
+    go_to_a_theater()
+have_lunch()
+
+if the_weather_is_good:
+    go_for_a_walk()
+elif tickets_are_available:
+    go_to_the_theater()
+elif table_is_available:
+    go_for_lunch()
+else:
+    play_chess_at_home()
+
+# Read two numbers
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+        # Choose the larger number
+if number1 > number2:
+    larger_number = number1
+else:
+    larger_number = number2
+print("The larger number is:", larger_number)
+
+# Read three numbers.
+number1 = int(input("Enter the first number: "))
+number2 = int(input("Enter the second number: "))
+number3 = int(input("Enter the third number: "))
+        # Check which one of the numbers is the greatest
+        # and pass it to the largest_number variable.
+largest_number = max(number1, number2, number3)
+print("The largest number is:", largest_number)
+
+nazwa_rosliny = input("Podaj nazwę rośliny:")
+if nazwa_rosliny == "Spathiphyllum":
+    print("Yes - Spathiphyllum is the best plant ever!")
+elif nazwa_rosliny == "spathiphyllum":
+    print("No, I want a big Spathiphyllum!")
+else:
+    print(f"Spathiphyllum! Not {nazwa_rosliny} !")
+    
+#Użycie f-string w Pythonie pozwala na formatowanie łańcuchów znaków z wyrażeniami umieszczonymi wewnątrz nich. 
+#W przypadku poprzedniej odpowiedzi, używamy f-string, aby wstawiać wartość zmiennej plant_name wewnątrz tekstu łańcucha znaków.
+
+dochod = float(input("Podaj swój dochód w talarach: "))
+        # Zdefiniuj ulgę podatkową i próg dochodowy
+ulga_podatkowa = 556.02
+prog_dochodowy = 85528
+        # Oblicz podatek
+if dochod <= prog_dochodowy:
+    podatek = 0.18 * dochod - ulga_podatkowa
+else:
+    podatek = 14839.02 + 0.32 * (dochod - prog_dochodowy)
+        # Upewnij się, że podatek nie jest ujemny
+if podatek < 0:
+    podatek = 0
+        # Zaokrąglij podatek do pełnych talarów
+zaokraglony_podatek = round(podatek)
+
+print("Obliczony podatek wynosi:", zaokraglony_podatek, "talarów")
+# W tym kodzie najpierw pobieramy dochód jako wartość zmiennoprzecinkową. 
+# Następnie stosujemy reguły, które opisałeś, aby obliczyć podatek. Jeśli dochód jest mniejszy lub równy 85 528 talarom, stosujemy pierwszą regułę, a jeśli jest wyższy, stosujemy drugą regułę. 
+# Na koniec zapewniamy, że podatek nie jest ujemny (co oznacza brak podatku), i zaokrąglamy go do najbliższego całego talaria za pomocą funkcji round(). 
+# Wynik jest wyświetlany na konsoli.
+
+        # Wczytaj rok
+rok = int(input("Podaj rok: "))
+        # Sprawdź, czy rok mieści się w erze kalendarza gregoriańskiego
+if rok < 1582:
+    print("Nie mieści się w okresie kalendarza gregoriańskiego")
+else:
+         # Sprawdź warunki określające, czy rok jest przestępny czy zwykły
+    if (rok % 4 != 0):
+        print("Rok zwykły")
+    elif (rok % 100 != 0):
+        print("Rok przestępny")
+    elif (rok % 400 != 0):
+        print("Rok zwykły")
+    else:
+        print("Rok przestępny")
+# Ten kod najpierw sprawdza, czy podany rok mieści się w erze kalendarza gregoriańskiego (od 1582 roku). 
+# Jeśli rok nie mieści się w okresie kalendarza gregoriańskiego, zostanie wyświetlony komunikat "Nie mieści się w okresie kalendarza gregoriańskiego". 
+# W przeciwnym przypadku sprawdza warunki określające, czy rok jest rokiem przestępnym czy zwykłym, i wyświetla odpowiedni komunikat.
+
+#                x = 0,     y = 1,     and     z = 0:
+    Operator	       Description	                         Example
+     ==	        returns True if operands' 
+                   values are equal,
+                  and False otherwise
+
+     !=        	returns True if operands'               x != y  # True
+                  values are not equal,                 x != z  # False
+                   and False otherwise	
+
+     >	        True if the left operand's              x > y  # False
+             value is greater than the right            y > z  # True
+            operand's value, and False otherwise	
+
+     <	        True if the left operand's              x < y  # True
+            value is less than the right operand's      y < z  # False
+                value, and False otherwise	 
+
+     ≥	        True if the left operand's             x >= y  # False
+            value is greater than or equal to          x >= z  # True
+                the right operand's value,             y >= z  # True
+                    and False otherwise	
+
+     ≤	        True if the left operand's             x <= y  # True
+             value is less than or equal to            x <= z  # True
+                the right operand's value,             y <= z  # False
+                    and False otherwise	            
+#
+
+
