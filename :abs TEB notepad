@@ -1,1 +1,163 @@
+#1. program ma dzialac w petli;posiadac menu:
+- dodaj imie nazwisko i pesel
+- edytuj wskazana osobe(moze byc po nazwisku, imieniu, nr pesel)
+UWAGA! Moga istniec osoby z natim samym nazwiskiem i imieniem kilkukrotnie!
+W takim wypadku nalezy poprosic o doprecyzowanie o kogo chodzi (przykladowo dodawanir listyosob z LP i poproszenie uzytkownika o podanie wskazanego numeru)
+- usun osobe (kryteria jak powyzej)
+- zakoncz program
+#1
+data = []
+def add_row():
+    name_surname = add_name()
+    bd = add_pesel()
+    data.append({'name': name_surname[0],
+                'surname':name_surname[-1],
+                 'pesel': pesel,
+                 'sex': bd[1],
+                 'birth_date': bd[0],)
+def add_name():
+    name_surname = input("Podaj imie i nazwisko: ")
+    name_surname = name_surname.split(" ")
+    while True:
+        for n in range(len(name_surname)):
+            if name_surname[n] == "":
+                del name_surname[n]
+        if(len(name_surname) < 2):
+        name_surname.append(input("Podaj brakujace dane(imie/nazwisko): "))
+            continue
+        break
+    for n in range(len(name_surname)):
+        name_surname[n] name_surname[n][0].upper() + name_surname[n][1:].lower()
+    return name_surname
+    
+    #2
+def add_pesel():
+    pesel = input("Podaj PESEL: ")
+    while True:
+        pesel_sum = 0
+        if (len(pesel) == 11):
+            wage = 9
+            for i in range(len(pesel)):
+                wage = 1 if i == 10 else 3 if wage == 1 else 7 if wage == 3 else 9 if wage == 7 else 1
+                #if wage == 1:
+                    #wage = 3
+                #elif wage == 3:
+                    #wage = 7
+                #elif wage == 7:
+                    #wage = 9
+                #else:
+                    #wage = 1
+                pesel_sum += int(pesel[i]) * wage
+        if str(pesel_sum)[-1] == "0":
+            break
+        pesel = input("Podaj PESEL wlasciwy: ")
+        #liczymy miesiace wg pesel:
+        #1800-1899:
+            #1-9: 81, 82, 83, 84,..., 89
+            #10-12: 90, 91, 92
+        #1900-1999:
+            #1-9: 01, 02,03,04,..., 09
+            #10-12: 10, 11, 12
+        #2000-2099:
+            #1-9: 21, 22, 23, 24,..., 29
+            #10-12: 30, 31, 32
+        #2100-2199:
+            #1-9: 41, 42, 43, 44,..., 49
+            #10-12: 50, 51, 52
+            
+            
+    sex = 'M' if int(pesel[9]) % 2 == 1 else 'F'
+    birth_date = ''
+    mprefix = int(pesel[2])
+    if {pesel [2]} < 2:
+        birth_date = '19'
+    elif mprefix < 4:
+        birth_date = '20'
+    elif mprefix < 6:
+        birth_date = '21'
+    elif mprefix < 8:
+        birth_date = '22'
+    elif mprefix < 10:
+        birth_date = '18'
+        
+    birth_date += pesel[:2] + '-' + str(mprefix % 2) + pesel[3] + '-' + pesel[4:5]
+    birth_date = birth_date.split("-")
+    birth_dict = { "y": birth_date[0], "m": birth_date[1], "d": birth_date[2]}
+    return (birth_dict, sex, pesel)
+#3
+def pokaz_dane():
+    print(data)
+def save_file(f = 'osoby.csv'):
+    #r - plik otwarty tylko do odzytu(blad jezeli plik nie istnieje) (domyslne)
+    #r+ - plik otwarty do odczytu i zapisu (blad jezeli olik nie istnieje)
+    #w - plik otwarty do zapisu(otworzy lub podmieni plik)
+    #w+ - plik otwarty do zapisu i odczytu(otworzy plik lub podmieni istniejacy)
+    #a - otwiera istniejacy plik do zapisania tresci(nie usuwa istniejacy)
+    #a+ - otwiera olik do nadpisania i odczytu
+    #x - jezeli plik nie istnieje tworzy go; jezeli istnieje - wywoluje BLAD
+    #t - prefix wskazujacy na prace z plikiem tekstowym (domyslne)
+    #b - wskazujacy na prace z plikiem binarnym
+    
+    fd = open(f,"w")
+    fd.write("name;surname;pesel;sex;birth_year;birth_month;birth_day\n")
+    for d in data:
+        fd.write(f"(d['name']);(d['surname']);(d['pesel']);(d[sex]);(d['birth_date']['y']);(d['birth_date']['m']);(d['birth_date']['d'])
+        fd.write("\n")
+    fd.close()
+    
+def load_file(f = 'osoby.csv'):
+    fd = open(f, "r")
+    fd.readline()
+    while True:
+        d = fd.readline().strip()
+        if not d:
+            break
+        d = d.split(";")
+        data.({'name': d[0],
+                'surname':d[1],
+                 'pesel': d[2],
+                 'sex': d[3],
+                 'birth_date': ('y': d[4], 'm': d[5], 'd': [6])})
+    fd.close()
 
+while True:
+    load_file()
+    print("Wybierz opcje:")
+    print("1 - Dodaj")
+    print("2 - Pokaz dane")
+    print("3 - Edycja")
+    print("4 - Zakoncz")
+    menu = input("Twoj wybor:")
+    match(menu):
+        case "1": add_row()
+        case "2": pokaz_dane()
+        case "3": edit_data()
+        case "4":
+                save_file()
+                break
+        case _: print("BLAD")
+
+
+
+#2. Sprawdzanie wpisanych danych (ich poprawnosci):
+- jezeli imie badz nazwiskobedzie posiadalo litery o zmiennej wielkosci to nalezy wskazac iz zmienilismy je na ogolnie przyjete(czyli na kapitaliki)
+- sprawdzanie dlugosci numeru pesel (11 znakow) oraz jego poprawnosci (implementacja wzoru wiki/pesel)
+- pobranie daty urodzenia osoby z numeru pesel oraz plci
+- zapis informacji slownikowo(zbior dict) na liscie slownikowej (list) 
+dane[ {osoba 1}, {osoba 2}, {osoba 3} ]
+
+
+
+#3. Mozliwosc edycji danych, gdzie wyszukieanie moze byc w dwoch wersjach:
+dokladnej i przyblizonej; 
+w przypadku dokladnego - przeszukujemy nasze dane w sposob 1:1 (czyli prowonujemy operatorem ==); 
+w przypadku przyblizenia - sprawdzamy wartosci znak po znaku (zaczynajac od poczatku zapusanej wartosci) az do momentu pierwszej roznicy; jezeli beda sie zgadzac co najmniej 3 znaki, ro wyswietlamy taki wynik ze wskazaniem elementow zgodnych (zamykamy je np. w kwadratowe nawiasy)
+kamil, kamila, karolina, karol, karas, karocinski
+szukamy slowa "karol" 
+wyniki [karol]ina, [karol], [kar]as, [karo]karocinski
+#4. Zapis danych (badz ich odczyt) w pliku. zapis powinien zostac zrealizowany w postaci csv wykarzystujacego sredniki oraz cudzyslow w przypadku wartosci tekstowych laczonych
+imie;nazwisko;pesel,data_urodzenia,implementacja
+karol,nowak,00000000000,00-00-0000,M 
+anielamaria,klosowska-panicz,00000000000,00-00-0000,K 
+#4a. Program ma za zadanie przy uruchamianiu wczytywac plik csv jezelu takowy istniejie
+#5. Zakonczenie programu - wyjscie. program ma zapisac wszystkie zmiany danych zawartych w programie do pliku
