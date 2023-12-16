@@ -1,0 +1,106 @@
+imiona = ['Ilona', 'Jacek', 'Tomasz', 'Amelia', 'Alojzy']
+wiek = [34, 18, 29, 67, 11, 80]
+print(imiona, wiek)
+
+
+for index in range(len(imiona)):
+    print (imiona[index], wiek[index])
+    print(f'Zapisane imie {imie}, wiek{wiek[0]}')
+
+#wartosc ma przechowywac wiele waznych dat z naszego zycia
+dates = []
+i = 0 
+while i < 4:
+    zm = input("Podaj wazna data dla ciebie: ")
+    if zm == '':
+        break
+    daty.append(zm)
+    i += 1
+else:
+    print(daty)
+    
+    #opcja 2 
+    
+dates = []
+przelacz = True
+while przelacz:
+    zm = input("Podaj wazna data dla ciebie: ")
+    if zm == '':
+        przelacz = False
+        continue
+    daty.append(zm)
+    print('Dodano date')
+else:
+    print(daty)
+    
+#lista(list) - modyfikowalna, mozliwe dodawanie wartosci
+    #imiona = ['Ilona', 'Jacek', 'Zaneta', 'Tomasz', 'Amelia', 'Alojzy']
+#krotka(tuple) - zamieszczone wartosci tylko do odczytu
+    #imiona = ('Ilona', 'Jacek', 'Zaneta', 'Tomasz', 'Amelia', 'Alojzy')
+#zbior(set) - modyfikowalny, jednak ulozenie elementow jest losowe, brak modyfikacji istniejacych wpisow
+    #imiona = {'Ilona', 'Jacek', 'Zaneta', 'Tomasz', 'Amelia', 'Alojzy'}
+#slownik(dict) - modyfikowalny, pozwala na zapis wartosci(value), pod okreslonymi kluczami(keys)
+#ze slownikow mozna wyciagac wartosci jak i klucze
+    #imiona = {'zenskie': ['Ilona', 'Amelia', 'Zaneta'], 'meskie': ['Tomasz', 'Jacek', 'Alojzy']}
+    #print(tuple(imiona.keys()))
+    #print(imiona[klucze[1 #lub 0 lub inny klucz w wartosci]])
+dates = []
+nieparzyste =(1,3,5,7,8,10,12)
+
+def czy_przestepny(rok):
+    #polecenie (kod_jezeli_prawda) if <warunek> else (kod_jezeli_false)
+    
+    return True if ((rok % 4 == 0 and rok % 100 != 0) or rok % 400 == 0) else False
+    
+def czy_prawidlowe_dni(dni, miesiac, przestepny):
+    id dni <= 0:
+        return False
+    if miesiac == 2 and dni <= (29 if przestepny else 28):
+        return True
+   # if miesiac == 2 and dni <= 28:
+   #     return True
+    if miesiac == 2:
+        return False 
+    if dni <= 30:
+        return True
+    if miesiac in nieparzyste and dni == 31:
+       return True
+ #   if miesiac >= 1 and miesiac <= 7 and miesiac % 2 == 1 and dni == 31:
+  #      return True
+#    if miesiac >= 8 and miesiac <= 12 and miesiac % 2 == 0 and dni == 31:
+#        return True
+    return False
+
+
+
+while True:
+    date = input("Podaj date do zapisania: ")
+    if date == '':
+        break
+    #sprawdzamy czy data poprawna
+    #sprawdzamy czy podany rok jest przestepny, czyli czy nie dzieli sie przez 4
+    date.array = date.split('.')
+    #false jezeli nieprzestepny, true jezeli tak
+  
+    # if (len(date_array[2] == 4)):
+    #  if (int(date_array[2])):
+    #     print('Przestepny!')
+    #  else:
+    #     print('Nieprzestepny!')
+    # else:
+    #   if (int('20'+date_array[2])):
+    #     print('Przestepny!')
+    #   else:
+    #     print('Nieprzestepny!')
+    
+    if czy_prawidlowe_dni(int(date_array[0]), int(date_array[1]), czy_przestepny(int(date_array[2])):
+        print ('Data prawidlowa')
+    else:
+        print ('Data nieprawidlowa!')
+    
+    if czy_przestepny(int(date_array[2]) if len(date_array[2]) == 4 else int('20'+date_array[2])):
+        print('Przestepny!')
+    else:
+        print('Nieprzestepny!')
+    
+        dates.append(date)
