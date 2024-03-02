@@ -53,4 +53,25 @@ Use the HTML width and height attributes or the CSS width and height properties 
 Use the CSS float property to let the image float to the left or to the right
 Note: Loading large images takes time, and can slow down your web page. Use images carefully.
 
+  You must define the shape of the clickable area, and you can choose one of these values:
+rect - defines a rectangular region
+circle - defines a circular region
+poly - defines a polygonal region
+default - defines the entire region
+  Use the HTML <map> element to define an image map
+Use the HTML <area> element to define the clickable areas in the image map
+Use the HTML usemap attribute of the <img> element to point to an image map
+
+  Shape="poly"
+The shape="poly" contains several coordinate points, which creates a shape formed with straight lines (a polygon).
+This can be used to create any shape.
+Like maybe a croissant shape!
+How can we make the croissant in the image below become a clickable link?
+French Food
+We have to find the x and y coordinates for all edges of the croissant:
+French Food
+The coordinates come in pairs, one for the x-axis and one for the y-axis:
+Example
+<area shape="poly" coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,103,161,128,147" href="croissant.htm">
+
   
